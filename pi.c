@@ -12,11 +12,11 @@ double f(double x) {
   return 4.0 / (1.0 + x * x);
 }
 
-double CalcPi(int n) {
+double CalcPi(long long n) {
   const double fH = 1.0 / (double)n;
   double fSum = 0.0;
   double fX;
-  int i;
+  long long i;
   // Bucle principal para paralelizar
   for (i = 0; i < n; i += 1) {
     fX = fH * ((double)i + 0.5);
@@ -27,9 +27,9 @@ double CalcPi(int n) {
 
 int main(int argc, char *argv[]) {
   double start_time, end_time;
-  int n = 100000000; // Número de intervalos
+  long long n = 100000000; // Número de intervalos
   if (argc > 1) {
-    n = atoi(argv[1]);
+    n = atoll(argv[1]);
   }
   start_time = GetTime();
   double pi = CalcPi(n);
