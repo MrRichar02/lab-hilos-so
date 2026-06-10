@@ -8,6 +8,12 @@ typedef struct
     int N;
 } FibonacciData;
 
+double GetTime() {
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (double)ts.tv_sec + (double)ts.tv_nsec / 1e9;
+}
+
 void *GenerateFibonacci(void *arg)
 {
     FibonacciData *data = (FibonacciData *)arg;
@@ -56,6 +62,7 @@ int main(int argc, char *argv[])
 
     pthread_t worker;
 
+    double start = GetTime();
     if (pthread_create(&worker, NULL,
                        GenerateFibonacci,
                        &data) != 0)
@@ -67,6 +74,8 @@ int main(int argc, char *argv[])
 
     pthread_join(worker, NULL);
 
+    double end = GetTime();
+
     printf("Secuencia de Fibonacci:\n");
 
     for (int i = 0; i < N; i++)
@@ -75,6 +84,7 @@ int main(int argc, char *argv[])
     }
 
     printf("\n");
+    printf("Tiempo de ejecución: %.6f segundos\n", end - start);
 
     free(fib);
 

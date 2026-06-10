@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <gmp.h>
+#include <time.h>
+
+double GetTime(){
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (double)ts.tv_sec + (double)ts.tv_nsec / 1e9;
+}
 
 void fibo(mpz_t *nums, long long n_fibbo);
 
@@ -28,8 +35,10 @@ int main(int argc, char *argv[])
     for (long long i = 0; i < n; i++)
         mpz_init(nums[i]);
 
+    double start = GetTime();
     fibo(nums, n);
-
+    double end = GetTime();
+    printf("Time taken: %f seconds\n", end - start);
     for (long long i = 0; i < n; i++)
     {
         gmp_printf("%Zd\n", nums[i]);
@@ -55,4 +64,5 @@ void fibo(mpz_t *nums, long long n_fibbo)
     {
         mpz_add(nums[i], nums[i - 1], nums[i - 2]);
     }
+
 }
