@@ -13,7 +13,7 @@ void fibo(mpz_t *nums, long long n_fibbo);
 
 int main(int argc, char *argv[])
 {
-    long long n = 100000;
+    long long n = 200000;
 
     if (argc > 1)
         n = atoll(argv[1]);
