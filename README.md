@@ -6,13 +6,13 @@
 
 - Nombre: Ricardo Medina Herrera
   - Correo: ricardo.medinah@udea.edu.co
-  - Número de documento: _______________________
+  - Número de documento: 1036251162
 
 - Nombre: Santiago Villegas Naranjo
   - Correo: santiago.villegasn@udea.edu.co
-  - Número de documento: _______________________
+  - Número de documento: 1001479227
 
-Enlace al video de exposición (10 minutos): _______________________
+Enlace al video : [Enlace](https://youtu.be/9CuxRbGp8bE?si=4Cr0IR_8YClPqsdw)
 
 ## Descripción general
 
